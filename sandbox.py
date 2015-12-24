@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://api.github.com/events"
+url = "https://google.com"
 
-request = requests.get(url)
-data = request.text
-soup = BeautifulSoup(data)
+r = requests.get(url)
+data = r.text
+soup = BeautifulSoup(data, "html.parser")
 
 for link in soup.find_all('a'):
   print(link.get('href'))
